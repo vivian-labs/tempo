@@ -1,0 +1,199 @@
+{
+  "date": "2026-10-16",
+  "os": "Windows 11 Pro 10.0.26200",
+  "processor": "Intel Core i7-10875H, 16 logical processors",
+  "processSamples": [
+    {
+      "caveats": [
+        "Summed working sets count shared pages more than once.",
+        "Private bytes are committed virtual memory, not private resident memory.",
+        "Short sample on one Windows machine; not an energy, GPU, or universal performance benchmark."
+      ],
+      "processes": [
+        {
+          "name": "TEMPO",
+          "id": 38164
+        },
+        {
+          "name": "TEMPO",
+          "id": 38764
+        },
+        {
+          "name": "TEMPO",
+          "id": 19000
+        },
+        {
+          "name": "TEMPO",
+          "id": 40912
+        },
+        {
+          "name": "TEMPO",
+          "id": 29320
+        }
+      ],
+      "cpuSecondsDelta": 3.25,
+      "privateBytes": 374702080,
+      "elapsedSeconds": 10.235464,
+      "label": "Electron 0.1 mechanical clock, ticks off",
+      "initialProcessCount": 5,
+      "cpuPercentOneCore": 31.752346547259606,
+      "workingSetBytes": 500789248
+    },
+    {
+      "cpuPercentOneCore": 9.249103956512672,
+      "cpuSecondsDelta": 0.953125,
+      "label": "Tauri 0.2 mechanical clock, ticks off",
+      "privateBytes": 395960320,
+      "initialProcessCount": 7,
+      "caveats": [
+        "Summed working sets count shared pages more than once.",
+        "Private bytes are committed virtual memory, not private resident memory.",
+        "Short sample on one Windows machine; not an energy, GPU, or universal performance benchmark."
+      ],
+      "elapsedSeconds": 10.3050523,
+      "workingSetBytes": 465080320,
+      "processes": [
+        {
+          "name": "tempo",
+          "id": 11960
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 11252
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 31128
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 40904
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 33556
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 32672
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 28780
+        }
+      ]
+    },
+    {
+      "processes": [
+        {
+          "id": 36832,
+          "name": "tempo"
+        },
+        {
+          "id": 6008,
+          "name": "msedgewebview2"
+        },
+        {
+          "id": 40896,
+          "name": "msedgewebview2"
+        },
+        {
+          "id": 17160,
+          "name": "msedgewebview2"
+        },
+        {
+          "id": 28792,
+          "name": "msedgewebview2"
+        },
+        {
+          "id": 38228,
+          "name": "msedgewebview2"
+        },
+        {
+          "id": 39796,
+          "name": "msedgewebview2"
+        }
+      ],
+      "privateBytes": 329216000,
+      "workingSetBytes": 469856256,
+      "label": "Tauri 0.2 warmed mechanical clock, ticks off",
+      "cpuSecondsDelta": 0.859375,
+      "elapsedSeconds": 10.2515463,
+      "initialProcessCount": 7,
+      "cpuPercentOneCore": 8.382881712195944,
+      "caveats": [
+        "Summed working sets count shared pages more than once.",
+        "Private bytes are committed virtual memory, not private resident memory.",
+        "Short sample on one Windows machine; not an energy, GPU, or universal performance benchmark."
+      ]
+    },
+    {
+      "processes": [
+        {
+          "name": "tempo",
+          "id": 11960
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 11252
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 31128
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 40904
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 33556
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 32672
+        },
+        {
+          "name": "msedgewebview2",
+          "id": 28780
+        }
+      ],
+      "elapsedSeconds": 10.225634,
+      "initialProcessCount": 7,
+      "cpuSecondsDelta": 0.359375,
+      "privateBytes": 377892864,
+      "cpuPercentOneCore": 3.514452013439949,
+      "caveats": [
+        "Summed working sets count shared pages more than once.",
+        "Private bytes are committed virtual memory, not private resident memory.",
+        "Short sample on one Windows machine; not an energy, GPU, or universal performance benchmark."
+      ],
+      "workingSetBytes": 463065088,
+      "label": "Tauri 0.2 mechanical clock, ticks on"
+    }
+  ],
+  "rendererSamples": [
+    {
+      "name": "electron-clock-renderer",
+      "mutations": 2850,
+      "elapsedMs": 10004.800000011921,
+      "visibility": "visible",
+      "viewport": {
+        "width": 1426,
+        "height": 963
+      },
+      "devicePixelRatio": 1.5
+    },
+    {
+      "name": "tauri-clock-renderer",
+      "mutations": 40,
+      "elapsedMs": 10013,
+      "visibility": "visible",
+      "viewport": {
+        "width": 1426,
+        "height": 963
+      },
+      "devicePixelRatio": 1.5
+    }
+  ]
+}

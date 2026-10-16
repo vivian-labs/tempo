@@ -131,6 +131,12 @@
     ]
   },
   "native": {
+    "windowBridge": {
+      "evidenceId": "ev_c0acfe065621139e950061e0a6605e620ce1a7e3e94302b124988b5e3e93b69a",
+      "function": "0x14000c540",
+      "channel": "bitsdojo/window",
+      "observation": "Constructs the method channel, installs a method-call handler, and transfers plugin ownership to the registrar."
+    },
     "inspectionEvidence": "ev_249c4309627ab0893f5f68284797341544fa2a95bbcbaeb7887bab2f8d111202",
     "definedProcedures": 531,
     "definedStrings": 355,

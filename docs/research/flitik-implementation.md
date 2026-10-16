@@ -25,6 +25,8 @@ Ghidra 默认分析识别出 531 个过程、355 条已定义字符串，装载�
 
 进一步对 `0x140003735` 反编译，定位到宿主函数 `FUN_1400036b0`：它逐项获取以插件名标识的 registrar，再调用音频、窗口、键鼠等注册入口。Bitsdojo 的注册链落到 `FUN_14000c540`。这是调用关系证据，确认插件确实进入宿主注册流程；仍不能证明某个主题或计时页面的运行时选择。完整反编译文本留在私有证据目录，公开文档只保留关系摘要。
 
+对 `FUN_14000c540` 的第二次反编译又确认：该入口构建名为 `bitsdojo/window` 的 Flutter method channel，创建窗口插件对象，设置方法调用处理器，并将对象交回 registrar 管理。这说明“同一套跨平台界面 + 原生窗口能力”通过消息通道和明确的对象生命周期连接起来。这里看到了窗口桥接层，不等于恢复了所有窗口命令处理细节。TEMPO 用 Tauri 的 typed invoke/event 边界表达自己的宿主接口。
+
 ## Flutter / Dart AOT 的实际结果
 
 REA `identify-flutter-build` 完成 APK 构建事实识别。arm64-v8a `libapp.so` 为 9,700,272 字节，`libflutter.so` 为 10,602,168 字节；两种 ABI 都观察到快照 hash `d20a1be77c3d3c41b2a5accaee1ce549`。引擎 build ID 与各库摘要在证据摘要中。工具未给出可靠 Dart 版本，因此不猜版本。

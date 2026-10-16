@@ -17,10 +17,10 @@ Turn the working desktop prototype into a maintained public project in `vivian-l
 
 - [x] Confirm GitHub owner `vivian-labs` and establish the requested local path.
 - [x] Preserve the 0.1 Electron implementation as a baseline.
-- [ ] Deep artifact research and design synthesis.
-- [ ] Native timer and sound engine, typed component UI.
-- [ ] Functional, visual and resource-use verification.
-- [ ] Public repository, CI and build documentation.
+- [x] Deep artifact research and design synthesis.
+- [x] Native timer and sound engine, typed component UI.
+- [x] Functional, visual and resource-use verification.
+- [x] Public repository, CI and build documentation.
 
 ## Evidence and limits
 
