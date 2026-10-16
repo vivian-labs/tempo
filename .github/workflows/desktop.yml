@@ -1,0 +1,47 @@
+name: Desktop validation
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  desktop:
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - os: windows-latest
+            artifact: windows-x64
+          - os: macos-14
+            artifact: macos-arm64
+          - os: macos-15-intel
+            artifact: macos-x64
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: Swatinem/rust-cache@v2
+        with:
+          workspaces: src-tauri -> target
+      - run: npm ci
+      - run: npm run check
+      - run: npm test
+      - run: npm run test:native
+      - run: npm run build
+      - name: Build platform bundle
+        run: npm run tauri -- build
+      - uses: actions/upload-artifact@v4
+        with:
+          name: tempo-${{ matrix.artifact }}
+          path: |
+            src-tauri/target/release/bundle/**/*.msi
+            src-tauri/target/release/bundle/**/*.exe
+            src-tauri/target/release/bundle/**/*.dmg
+          if-no-files-found: error
+          retention-days: 14

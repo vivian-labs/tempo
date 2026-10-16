@@ -1,0 +1,157 @@
+{
+  "date": "2026-10-16",
+  "tools": {
+    "rea": "6.5.0",
+    "ghidra": "12.1.4"
+  },
+  "sources": {
+    "website": "https://www.flitik.com/",
+    "downloadConfiguration": "https://www.flitik.com/js/downloads.js",
+    "windows": "https://zhcy.oss-cn-hangzhou.aliyuncs.com/flitik/FliTik_latest.exe"
+  },
+  "artifacts": {
+    "installer": {
+      "bytes": 70525400,
+      "sha256": "9f257a0e774a7b41f9603a816f3c0693b9ef6c7a9477be50a2166a28a2e93702"
+    },
+    "windowsHost": {
+      "bytes": 466064,
+      "sha256": "45b19c2715cea6e72a162828a64378de6cded2d94b1576eb6162e34831cb91bc"
+    },
+    "apk": {
+      "bytes": 107601364,
+      "sha256": "052d9509d71a14f86b036911874ffd546dc267ef806dc9c857a81136e75a494b"
+    }
+  },
+  "flutter": {
+    "evidenceId": "ev_caed22ab4c4b4fd9641754050c606952e9f5a476bbeeea61a9326224b698c13a",
+    "abis": [
+      {
+        "abi": "arm64-v8a",
+        "libapp": {
+          "present": true,
+          "bytes": 9700272,
+          "sha256": "05ffd24c04671be1186bf7ae3cab73ff20d1b6fe1d494015b8f6f9a2ba11cec6",
+          "elf_header_valid": true,
+          "snapshot_hash_sources": 2,
+          "snapshot_hash_candidates": ["d20a1be77c3d3c41b2a5accaee1ce549"],
+          "snapshot_hash": "d20a1be77c3d3c41b2a5accaee1ce549"
+        },
+        "libflutter": {
+          "present": true,
+          "bytes": 10602168,
+          "sha256": "e00f46e457f8397ae34fab69f56cc5564ceb74cf5509624f3cc673b7588e7953",
+          "build_id": "b4ba48b16f1760763d444d35d5d0106ba554fabd",
+          "build_id_candidates": ["b4ba48b16f1760763d444d35d5d0106ba554fabd"],
+          "dart_version": null,
+          "dart_version_capped": false,
+          "toolchain_lines": [
+            "Android (10552028, +pgo, +bolt, +lto, -mlgo, based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)"
+          ],
+          "toolchain_capped": false
+        }
+      },
+      {
+        "abi": "armeabi-v7a",
+        "libapp": {
+          "present": true,
+          "bytes": 10699356,
+          "sha256": "1ab3b2e80548caea16bec87131f5535a4998957518e859603dace7c77121e404",
+          "elf_header_valid": true,
+          "snapshot_hash_sources": 2,
+          "snapshot_hash_candidates": ["d20a1be77c3d3c41b2a5accaee1ce549"],
+          "snapshot_hash": "d20a1be77c3d3c41b2a5accaee1ce549"
+        },
+        "libflutter": {
+          "present": true,
+          "bytes": 7454144,
+          "sha256": "3d761c329faba8aa026a25bf4e0119d76aa190c0bce54a248fec4a096c7827f2",
+          "build_id": "e1a441ed6735894bedca149e550f7cb915c2e21b",
+          "build_id_candidates": ["e1a441ed6735894bedca149e550f7cb915c2e21b"],
+          "dart_version": null,
+          "dart_version_capped": false,
+          "toolchain_lines": [
+            "Android (10552028, +pgo, +bolt, +lto, -mlgo, based on r487747d) clang version 17.0.2 (https://android.googlesource.com/toolchain/llvm-project d9f89f4d16663d5012e5c09495f3b30ece3d2362)"
+          ],
+          "toolchain_capped": false
+        }
+      }
+    ],
+    "coverage": "complete"
+  },
+  "aot": {
+    "evidenceId": "ev_f5783c9dbddf1b65b028e6e489ced1657b4cebd2c8edc7debb28a34f5c8b6ad0",
+    "abi": "arm64-v8a",
+    "structure": {
+      "coverage": "complete",
+      "bytes": 9700272,
+      "sha256": "05ffd24c04671be1186bf7ae3cab73ff20d1b6fe1d494015b8f6f9a2ba11cec6",
+      "snapshot_hash": "d20a1be77c3d3c41b2a5accaee1ce549",
+      "snapshot_hash_candidates": ["d20a1be77c3d3c41b2a5accaee1ce549"],
+      "snapshot_hash_sources": 2,
+      "sections": [
+        {
+          "name": "_kDartVmSnapshotInstructions",
+          "offset": 2621440,
+          "size": 92432,
+          "magic_valid": false,
+          "kind": null,
+          "header_length": null
+        },
+        {
+          "name": "_kDartIsolateSnapshotInstructions",
+          "offset": 2713920,
+          "size": 6931632,
+          "magic_valid": false,
+          "kind": null,
+          "header_length": null
+        },
+        {
+          "name": "_kDartVmSnapshotData",
+          "offset": 512,
+          "size": 16048,
+          "magic_valid": true,
+          "kind": 3,
+          "header_length": 14537
+        },
+        {
+          "name": "_kDartIsolateSnapshotData",
+          "offset": 16576,
+          "size": 2549872,
+          "magic_valid": true,
+          "kind": 3,
+          "header_length": 1825516
+        }
+      ]
+    },
+    "stringPoolCoverage": "partial",
+    "limitations": [
+      "Byte-string projection is not typed Dart source.",
+      "Token inventory is truncated; Android evidence does not establish Windows application semantics."
+    ]
+  },
+  "native": {
+    "inspectionEvidence": "ev_249c4309627ab0893f5f68284797341544fa2a95bbcbaeb7887bab2f8d111202",
+    "definedProcedures": 531,
+    "definedStrings": 355,
+    "imageBase": "0x140000000",
+    "audioRegistrationXrefs": {
+      "evidenceId": "ev_24683ae4abe140c4231cc05cca67537be699606d1324f61d7ff7c2653d3a487a",
+      "address": "EXTERNAL:0x3",
+      "references": ["0x140003735", "0x1400104d8"]
+    },
+    "registrantFunction": {
+      "evidenceId": "ev_5e9cdb7f6a5083d68acef6ec3803b6b651f5e287554828ceb2d5880fb0b340a9",
+      "address": "0x1400036b0",
+      "observation": "Named registrars are obtained and plugin registration functions are called; full pseudocode is excluded."
+    }
+  },
+  "runtime": {
+    "observed": "Windows application started; onboarding overlay and underlying clock surfaces observed.",
+    "limits": [
+      "REA native UI provider unavailable on Windows in this setup.",
+      "UIA tree exposes a Flutter pane only.",
+      "Full interaction/animation timing and macOS FliTik runtime were not validated."
+    ]
+  }
+}

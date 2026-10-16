@@ -17,6 +17,7 @@ TEMPO is being developed openly under vivian-labs. The initial Electron prototyp
 ## Development and research
 
 - [Current plan](docs/PLAN.md)
+- [Build and verification](docs/DEVELOPMENT.md)
 - [Research index](docs/research/README.md)
 - [Technology decision](docs/decisions/0001-desktop-architecture.md)
 - [Development journal](docs/journal/2026-10-16.md)

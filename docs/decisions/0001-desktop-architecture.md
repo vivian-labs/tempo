@@ -8,12 +8,12 @@ Windows/macOS, a highly polished analogue dial and physical flip animation, reli
 
 ## Options
 
-| Option | Benefit | Cost / limit |
-| --- | --- | --- |
-| Electron baseline | Known working behavior, one bundled renderer, straightforward automation | Each app ships Chromium/Node; our baseline also rewrites UI state on a polling render loop |
-| Flutter | FliTik's shipped Windows artifacts confirm this choice; excellent custom painting and a shared widget model | Requires Flutter SDK/native toolchains; Flutter's [Impeller documentation](https://docs.flutter.dev/perf/impeller) does not establish a blanket Windows performance advantage |
-| Tauri 2 + Svelte 5 | System WebView, Rust native services, compiler-generated small UI updates; CSS transforms suit a split-flap display | Platform WebViews differ; requires native platform QA and Rust toolchains; smaller installer does not automatically imply lower total working set |
-| Separate SwiftUI / WinUI apps | Maximum platform control | Two implementations and more duplicated product/motion logic |
+| Option                        | Benefit                                                                                                             | Cost / limit                                                                                                                                                                  |
+| ----------------------------- | ------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Electron baseline             | Known working behavior, one bundled renderer, straightforward automation                                            | Each app ships Chromium/Node; our baseline also rewrites UI state on a polling render loop                                                                                    |
+| Flutter                       | FliTik's shipped Windows artifacts confirm this choice; excellent custom painting and a shared widget model         | Requires Flutter SDK/native toolchains; Flutter's [Impeller documentation](https://docs.flutter.dev/perf/impeller) does not establish a blanket Windows performance advantage |
+| Tauri 2 + Svelte 5            | System WebView, Rust native services, compiler-generated small UI updates; CSS transforms suit a split-flap display | Platform WebViews differ; requires native platform QA and Rust toolchains; smaller installer does not automatically imply lower total working set                             |
+| Separate SwiftUI / WinUI apps | Maximum platform control                                                                                            | Two implementations and more duplicated product/motion logic                                                                                                                  |
 
 ## Decision
 
