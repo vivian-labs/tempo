@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+ <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+ <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:; font-src 'self'; connect-src 'none'; object-src 'none'; base-uri 'none'">
+ <title>TEMPO — 时间，有形</title><link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark" data-mode="timer" data-view="dial">
+ <svg class="svg-library" aria-hidden="true"><defs>
+ <symbol id="i-expand" viewBox="0 0 24 24"><path d="M8 3H3v5m13-5h5v5M3 16v5h5m13-5v5h-5"/></symbol>
+ <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></symbol>
+ <symbol id="i-sound" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 8a6 6 0 010 8m3-11a10 10 0 010 14"/></symbol>
+ <symbol id="i-mute" viewBox="0 0 24 24"><path d="M4 9h4l5-4v14l-5-4H4zM17 9l5 6m0-6l-5 6"/></symbol>
+ <symbol id="i-reset" viewBox="0 0 24 24"><path d="M4 10a8 8 0 111 8M4 4v6h6"/></symbol>
+ <symbol id="i-play" viewBox="0 0 24 24"><path d="M9 5l11 7L9 19z"/></symbol>
+ <symbol id="i-pause" viewBox="0 0 24 24"><path d="M8 5v14m8-14v14"/></symbol>
+ <symbol id="i-pin" viewBox="0 0 24 24"><path d="M8 3h8l-1 7 4 4H5l4-4zM12 14v7"/></symbol>
+ <symbol id="i-close" viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></symbol>
+ </defs></svg>
+ <header class="topbar chrome">
+  <a class="brand" href="#" aria-label="TEMPO 首页"><span class="brand-mark">✳</span><span>TEMPO<span class="brand-period">.</span></span></a>
+  <nav class="mode-switch" aria-label="计时模式"><button data-mode="clock">时钟</button><button data-mode="timer" class="selected">倒计时</button><button data-mode="alarm">闹钟</button></nav>
+  <div class="header-actions"><button id="pin" class="icon-button" aria-label="窗口置顶" title="置顶 · P"><svg><use href="#i-pin"/></svg></button><button id="fullscreen" class="icon-button" aria-label="全屏" title="全屏 · F"><svg><use href="#i-expand"/></svg></button><button id="settings-open" class="icon-button" aria-label="声音与外观设置" title="设置 · ,"><svg><use href="#i-settings"/></svg></button></div>
+ </header>
+ <main>
+  <section class="instrument-heading chrome"><div><span class="eyebrow">THE ART OF KEEPING TIME</span><h1 id="heading">让每一刻，有分量。</h1></div><div class="view-switch" aria-label="表盘外观"><button data-view="dial" class="selected"><span class="dial-icon"></span>机械</button><button data-view="flip"><span class="flip-icon"></span>翻页</button></div></section>
+  <section class="stage" aria-label="时间仪表">
+   <aside class="annotation annotation-left chrome"><span class="annotation-number">01 / INSTRUMENT</span><span class="hairline"></span><strong id="instrument-name">机械倒计时</strong><p id="instrument-description">旋转指针，给此刻<br>一个明确的期限。</p><span class="annotation-detail" id="dial-scale">60 MIN · PRECISION DIAL</span></aside>
+   <div class="dial-object" id="dial-object">
+    <div class="dial-foot left"></div><div class="dial-foot right"></div><div class="dial-crown" title="拖动表盘设置时长"><i></i></div>
+    <div class="bezel"><div class="bezel-inner"><div class="dial-glass">
+     <svg id="dial" viewBox="0 0 600 600" role="img" aria-label="机械倒计时表盘，拖动设置时间" tabindex="0"><defs>
+      <radialGradient id="face" cx="42%" cy="30%" r="75%"><stop offset="0" stop-color="#faf7ee"/><stop offset=".72" stop-color="#eeeade"/><stop offset="1" stop-color="#dcd6c9"/></radialGradient>
+      <linearGradient id="needleMetal" x1="0" x2="1"><stop stop-color="#111a19"/><stop offset=".46" stop-color="#4b5652"/><stop offset=".49" stop-color="#18221f"/><stop offset="1" stop-color="#08100d"/></linearGradient>
+      <radialGradient id="hubMetal"><stop stop-color="#e9e3d6"/><stop offset=".35" stop-color="#a4a599"/><stop offset=".6" stop-color="#3d4741"/><stop offset=".8" stop-color="#7d8478"/><stop offset="1" stop-color="#1c2520"/></radialGradient>
+      <filter id="handShadow" x="-100%" y="-100%" width="300%" height="300%"><feDropShadow dx="2" dy="4" stdDeviation="2" flood-color="#242a21" flood-opacity=".28"/></filter>
+      <radialGradient id="sectorFill"><stop stop-color="#df512b" stop-opacity=".10"/><stop offset="1" stop-color="#df512b" stop-opacity=".36"/></radialGradient>
+     </defs>
+     <circle cx="300" cy="300" r="299" fill="url(#face)"/>
+     <circle cx="300" cy="300" r="281" fill="none" stroke="#a6a394" stroke-opacity=".28"/>
+     <path id="time-sector" fill="url(#sectorFill)"/>
+     <g id="dial-ticks"></g><g id="dial-numbers"></g>
+     <text x="300" y="199" class="face-brand">TEMPO</text><text x="300" y="218" class="face-subbrand">PRECISION IN THE PRESENT</text>
+     <circle cx="300" cy="391" r="36" class="subdial-track"/><g id="subdial-ticks"></g>
+     <g id="subdial-hand"><path d="M300 402V362" stroke="#b84d30" stroke-width="2"/><circle cx="300" cy="391" r="3" fill="#26312b"/></g>
+     <text id="face-caption" x="300" y="456" class="face-caption">COUNTDOWN / MINUTES</text>
+     <g id="hour-hand" filter="url(#handShadow)"><path d="M294 315L291 281L297 168L303 168L309 281L306 315Z" fill="url(#needleMetal)"/><path d="M300 177V270" stroke="#c5c6b9" stroke-width="2"/></g>
+     <g id="minute-hand" filter="url(#handShadow)"><path d="M295 328L295 281L298 86L302 86L305 281L305 328Z" fill="url(#needleMetal)"/><path d="M300 103V258" stroke="#a4aea1" stroke-width="1.4"/></g>
+     <g id="timer-hand" filter="url(#handShadow)"><path d="M296 341L297 106L300 73L303 106L304 341Z" fill="#d7502a"/><path d="M299 101V277" stroke="#f89968" stroke-width="1"/><circle cx="300" cy="338" r="9" fill="#d7502a"/></g>
+     <circle cx="300" cy="300" r="16" fill="url(#hubMetal)" filter="url(#handShadow)"/><circle cx="300" cy="300" r="5" fill="#d85730"/><circle cx="298.5" cy="298" r="1.5" fill="#ffba87"/>
+     </svg>
+     <div class="glass-reflection"></div>
+    </div></div></div>
+   </div>
+   <div id="flip-object" class="flip-object" hidden><div class="flip-topline"><span>TEMPO / SPLIT–FLAP</span><span class="flip-live"><i></i> PRECISION SERIES</span></div><div class="flip-units" id="flip-units"></div><div class="flip-bottomline"><span id="flip-date"></span><span>TIME, MADE TANGIBLE.</span></div></div>
+   <aside class="annotation annotation-right chrome"><span class="live-status"><i id="status-led"></i><span id="status-label">READY WHEN YOU ARE</span></span><strong id="status-number">25<span>min</span></strong><span class="hairline"></span><p id="status-description">时间正在等待<br>你的开始。</p><div class="mini-meter"><i id="mini-meter-fill"></i></div></aside>
+  </section>
+  <section class="readout"><span class="state-badge" id="state-badge"><i></i><span>准备就绪</span></span><div class="time-readout" id="time-readout" aria-live="off">25:00</div><p id="readout-caption">留给重要的事，一段完整的时间。</p></section>
+  <section class="control-deck chrome" aria-label="计时控制">
+   <div class="timer-controls" id="timer-controls"><div class="preset-row"><span class="deck-label">DURATION</span><button data-minutes="5">5<span>分钟</span></button><button data-minutes="15">15<span>分钟</span></button><button data-minutes="25" class="selected">25<span>分钟</span></button><button data-minutes="45">45<span>分钟</span></button><button id="custom-duration">自定义 <span>↗</span></button></div><div class="transport"><button id="reset" class="icon-button reset-button" aria-label="重置倒计时" title="重置 · R"><svg><use href="#i-reset"/></svg></button><button id="start" class="start-button"><svg><use href="#i-play"/></svg><span>开始专注</span><kbd>SPACE</kbd></button></div></div>
+   <div class="alarm-controls" id="alarm-controls" hidden><div><span class="deck-label">DAILY ALARM</span><label for="alarm-time">每天，于此刻响起</label></div><input type="time" id="alarm-time" value="09:00" aria-label="每日闹钟时间"><button id="alarm-toggle" class="start-button"><span>开启闹钟</span></button></div>
+   <div class="clock-controls" id="clock-controls" hidden><span class="deck-label">LOCAL TIME</span><span id="local-date"></span><span class="clock-note">把时间，留在眼前。</span></div>
+  </section>
+ </main>
+ <footer class="chrome"><span><i class="footer-dot"></i><span id="footer-mode">MECHANICAL COUNTDOWN</span></span><span class="footer-shortcuts">F 全屏 <b>·</b> M 滴答 <b>·</b> 1 / 2 切换表盘</span><button id="sound-toggle" class="sound-toggle" aria-label="开启机械滴答声"><svg><use href="#i-mute"/></svg><span>机械声 · 关闭</span></button></footer>
+ <div class="drawer-backdrop" id="drawer-backdrop" hidden></div>
+ <aside class="settings-drawer" id="settings-drawer" aria-label="声音与外观设置" role="dialog" aria-modal="true" hidden><div class="drawer-heading"><div><span class="eyebrow">MAKE IT YOURS</span><h2>声音与质感</h2></div><button id="settings-close" class="icon-button" aria-label="关闭设置"><svg><use href="#i-close"/></svg></button></div>
+  <section><h3>机械声音</h3><p>清脆的触发。干净的衰减。</p><label class="setting-line">每秒滴答<button id="tick-switch" class="toggle" role="switch" aria-checked="false"><i></i></button></label><div class="tone-options"><button data-tone="steel" class="selected">冷钢<span>锐利 · 冷静</span></button><button data-tone="ceramic">瓷片<span>清脆 · 透亮</span></button><button data-tone="wood">木槌<span>短促 · 干燥</span></button></div><label class="volume-label" for="volume">音量 <output id="volume-value">35%</output></label><input id="volume" type="range" min="0" max="100" value="35"><button id="preview-sound" class="text-button">▷ 试听机械声</button><p class="setting-hint">音量也控制到时铃声；关闭滴答不影响闹钟。</p></section>
+  <section><h3>运动与氛围</h3><label class="setting-line">指针逐秒跳动<button id="step-switch" class="toggle" role="switch" aria-checked="true"><i></i></button></label><label class="setting-line">临近结束增强紧迫感<button id="urgency-switch" class="toggle" role="switch" aria-checked="true"><i></i></button></label><label class="setting-line">静止后隐藏操作界面<button id="hide-switch" class="toggle" role="switch" aria-checked="false"><i></i></button></label><div class="theme-options"><button data-theme="dark" class="selected"><i></i>墨黑工作室</button><button data-theme="light"><i></i>暖白工作室</button></div></section>
+  <section class="shortcuts"><h3>快捷操作</h3><p><span>开始 / 暂停</span><kbd>SPACE</kbd></p><p><span>重置倒计时</span><kbd>R</kbd></p><p><span>全屏 / 退出全屏</span><kbd>F / ESC</kbd></p><p><span>机械 / 翻页</span><kbd>1 / 2</kbd></p><p><span>窗口置顶</span><kbd>P</kbd></p></section><p class="drawer-footnote">TEMPO 0.1 · 离线运行<br>闹钟需保持应用运行；电脑休眠时不会响铃。</p>
+ </aside>
+ <dialog id="duration-dialog"><form id="duration-form"><span class="eyebrow">SET YOUR INTENTION</span><h2>给自己，多长时间？</h2><label for="duration-input">分钟，或 分:秒 / 时:分:秒</label><input id="duration-input" type="text" inputmode="numeric" value="25:00" autocomplete="off" maxlength="10"><p id="duration-error" role="alert"></p><div class="dialog-actions"><button type="button" id="duration-cancel" class="text-button">取消</button><button type="submit" class="start-button">设置时长</button></div></form></dialog>
+ <dialog id="ring-dialog"><div class="ring-icon">✳</div><span class="eyebrow">A MOMENT, COMPLETE.</span><h2 id="ring-title">时间到了。</h2><p id="ring-message">这一刻，告一段落。</p><div class="dialog-actions"><button id="snooze" class="text-button">5 分钟后提醒</button><button id="dismiss-ring" class="start-button">结束铃声</button></div></dialog>
+ <div class="toast" id="toast" role="status"></div>
+ <script type="module" src="app.mjs"></script>
+</body></html>

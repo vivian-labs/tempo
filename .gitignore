@@ -1,0 +1,17 @@
+.local/
+node_modules/
+target/
+dist/
+artifacts/
+test-results/
+playwright-report/
+.env
+.env.*
+!.env.example
+*.log
+*.apk
+*.exe
+*.dll
+*.so
+*.dmg
+.DS_Store

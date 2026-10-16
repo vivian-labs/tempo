@@ -1,0 +1,18 @@
+[
+  {
+    "platform": "AppleSilicon",
+    "symlinks": 14,
+    "mainMode": "100755",
+    "launcherMode": "100755",
+    "sourceMatches": true,
+    "runtimeTested": false
+  },
+  {
+    "platform": "Intel",
+    "symlinks": 14,
+    "mainMode": "100755",
+    "launcherMode": "100755",
+    "sourceMatches": true,
+    "runtimeTested": false
+  }
+]

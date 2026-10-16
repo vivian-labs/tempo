@@ -1,0 +1,26 @@
+{
+  "packaged": true,
+  "checks": [
+    "window layout 1440x1000",
+    "window layout 720x850",
+    "window layout 620x670",
+    "idle flip view renders immediately",
+    "invalid duration stays in dialog",
+    "pause freezes visible countdown",
+    "running countdown restores after renderer reload",
+    "countdown reaches zero and opens completion",
+    "completion is dismissed and does not retrigger",
+    "analog wall clock displays three hands",
+    "sound preview and volume controls run without errors",
+    "appearance and sound settings persist",
+    "daily alarm triggers at selected local time",
+    "five-minute snooze triggers again",
+    "native always-on-top toggles",
+    "native fullscreen and Escape",
+    "actual sound synth produces short non-silent transients",
+    "no renderer errors, font errors or failed resource loads"
+  ],
+  "rendererErrors": [],
+  "platform": "win32",
+  "date": "2026-10-16T09:49:06.754Z"
+}
