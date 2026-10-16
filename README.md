@@ -4,6 +4,8 @@
 
 A tactile desktop clock for Windows and macOS: a mechanical dial, split-flap display, visual countdown, and a crisp, restrained mechanical voice.
 
+**[下载 0.2 公开预览版 · Windows / Mac](https://github.com/vivian-labs/tempo/releases/tag/v0.2.0)**
+
 TEMPO is developed openly under vivian-labs. The initial Electron prototype is preserved in `prototypes/electron` as a functional and performance baseline. The current implementation uses Tauri 2, Svelte 5, TypeScript and Rust.
 
 当前实现支持机械指针、逐渐消失的倒计时扇区、分片翻页、每日闹钟、稍后提醒、三种程序化音色、全屏、置顶、静止后隐藏操作界面，以及墨黑 / 暖白 / 纯黑主题。数字读数可以关闭。计时与声音由 Rust 内核维护，界面按时间变化更新。
