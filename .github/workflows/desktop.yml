@@ -2,10 +2,14 @@ name: Desktop validation
 on:
   push:
     branches: [main]
+    paths-ignore: ['docs/**', 'README.md']
   pull_request:
   workflow_dispatch:
 permissions:
   contents: read
+concurrency:
+  group: desktop-${{ github.ref }}
+  cancel-in-progress: true
 jobs:
   desktop:
     strategy:
@@ -20,8 +24,8 @@ jobs:
             artifact: macos-x64
     runs-on: ${{ matrix.os }}
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/setup-node@v4
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: npm
@@ -36,7 +40,21 @@ jobs:
       - run: npm run build
       - name: Build platform bundle
         run: npm run tauri -- build
-      - uses: actions/upload-artifact@v4
+      - name: Launch macOS application
+        if: runner.os == 'macOS'
+        shell: bash
+        run: |
+          app_binary=$(find src-tauri/target/release/bundle/macos -type f -path '*/Contents/MacOS/*' -print -quit)
+          test -n "$app_binary"
+          TEMPO_DATA_DIR="$RUNNER_TEMP/tempo-smoke" "$app_binary" > "$RUNNER_TEMP/tempo-smoke.log" 2>&1 &
+          app_process=$!
+          trap 'kill "$app_process" 2>/dev/null || true' EXIT
+          sleep 5
+          if ! kill -0 "$app_process" 2>/dev/null; then
+            cat "$RUNNER_TEMP/tempo-smoke.log"
+            exit 1
+          fi
+      - uses: actions/upload-artifact@v7
         with:
           name: tempo-${{ matrix.artifact }}
           path: |
