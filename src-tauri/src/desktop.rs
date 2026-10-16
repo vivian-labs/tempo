@@ -153,7 +153,7 @@ fn worker(runtime: Runtime, app: tauri::AppHandle) {
                         .display(true)
                         .idle(false)
                         .sleep(false)
-                        .app_name("TEMPO")
+                        .app_name("一刻 · TEMPO")
                         .reason("Active timer or fullscreen instrument")
                         .create()
                         .ok();
@@ -225,7 +225,7 @@ pub fn run() {
                 "main",
                 tauri::WebviewUrl::App("index.html".into()),
             )
-            .title("TEMPO")
+            .title("一刻 · TEMPO")
             .inner_size(1440., 1000.)
             .min_inner_size(620., 670.)
             .background_color(tauri::window::Color(21, 23, 22, 255));

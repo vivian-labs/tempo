@@ -299,7 +299,8 @@
     <button
       class="brand"
       onclick={() => act({ type: 'setMode', mode: 'timer' })}
-      aria-label="TEMPO 首页"
+      aria-label="一刻（TEMPO）首页"
+      title="一刻 · TEMPO"
       ><span class="brand-mark">✳</span><span
         >TEMPO<span class="brand-period">.</span></span
       ></button

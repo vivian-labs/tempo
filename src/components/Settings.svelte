@@ -146,6 +146,7 @@
       </p>{/each}
   </section>
   <p class="drawer-footnote">
-    TEMPO 0.2 · 时间，有形。<br />闹钟需保持应用运行；电脑休眠时不会响铃。
+    一刻 · TEMPO 0.2 · 时间，有形。<br
+    />闹钟需保持应用运行；电脑休眠时不会响铃。
   </p>
 </div>

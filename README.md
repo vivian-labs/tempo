@@ -1,4 +1,6 @@
-# TEMPO
+# 一刻 · TEMPO
+
+**一刻**是中文名，**TEMPO** 是英文名。
 
 **Time, made tangible. / 时间，有形。**
 
