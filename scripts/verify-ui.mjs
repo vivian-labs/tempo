@@ -43,6 +43,11 @@ try {
   page.on('pageerror', (e) => errors.push(e.message));
   if (!process.env.TEMPO_CDP) await page.goto(url);
   await page.locator('#time-readout').waitFor();
+  if (process.env.TEMPO_CDP) await page.evaluate(async () => {
+    const invoke = window.__TAURI_INTERNALS__.invoke;
+    await invoke('dispatch', {action: {type: 'dismiss'}});
+    await invoke('dispatch', {action: {type: 'reset'}});
+  });
   async function check(name, fn) {
     await fn();
     results.push(name);
@@ -62,8 +67,9 @@ try {
   });
   await check('pause, stable remaining time and resume', async () => {
     await page.locator('#start').click();
-    await page.waitForTimeout(1800);
+    await page.waitForFunction(() => document.querySelector('#time-readout')?.textContent !== '00:08', {timeout: 4000});
     await page.locator('#start').click();
+    await page.waitForFunction(() => document.querySelector('#start')?.textContent?.includes('继续专注'));
     const value = await page.locator('#time-readout').innerText();
     assert.notEqual(value, '00:08');
     await page.waitForTimeout(1200);

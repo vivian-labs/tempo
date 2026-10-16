@@ -1,6 +1,6 @@
 # Build, verification and project records
 
-Use Node 24 and a current stable Rust toolchain. On Windows use Visual Studio C++ Build Tools and the MSVC target with WebView2 installed; on macOS install Xcode command-line tools. See [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/).
+Use Node 24 and Rust 1.90 or newer (current stable recommended). On Windows use Visual Studio C++ Build Tools and the MSVC target with WebView2 installed; on macOS install Xcode command-line tools. See [Tauri prerequisites](https://v2.tauri.app/start/prerequisites/).
 
 ```sh
 npm ci
